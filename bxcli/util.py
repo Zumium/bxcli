@@ -24,7 +24,8 @@ def parse_inner_path(i):
     splited = i.split(':')
     if len(splited) < 2:
         raise InnerPathFormatException()
-    return int(splited[0]), splited[1]
+    id, pth = splited[0], splited[1]
+    return int(id), pth
 
 
 def report_exception(func):

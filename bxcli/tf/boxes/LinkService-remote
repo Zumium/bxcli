@@ -27,7 +27,7 @@ if len(sys.argv) <= 1 or sys.argv[1] == '--help':
     print('  void create(i64 boxId, string innerPath, string destination, LinkType linkType)')
     print('   lsAll()')
     print('   lsBox(i64 boxId)')
-    print('  Link lsInner(i64 boxId, string innerPath)')
+    print('   lsInner(i64 boxId, string innerPath)')
     print('  void removeAll()')
     print('  void removeById(i64 id)')
     print('  void removeByBox(i64 boxId)')

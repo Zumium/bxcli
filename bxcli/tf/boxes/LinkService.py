@@ -1161,9 +1161,14 @@ class lsInner_result(object):
             if ftype == TType.STOP:
                 break
             if fid == 0:
-                if ftype == TType.STRUCT:
-                    self.success = Link()
-                    self.success.read(iprot)
+                if ftype == TType.LIST:
+                    self.success = []
+                    (_etype31, _size28) = iprot.readListBegin()
+                    for _i32 in range(_size28):
+                        _elem33 = Link()
+                        _elem33.read(iprot)
+                        self.success.append(_elem33)
+                    iprot.readListEnd()
                 else:
                     iprot.skip(ftype)
             elif fid == 1:
@@ -1183,8 +1188,11 @@ class lsInner_result(object):
             return
         oprot.writeStructBegin('lsInner_result')
         if self.success is not None:
-            oprot.writeFieldBegin('success', TType.STRUCT, 0)
-            self.success.write(oprot)
+            oprot.writeFieldBegin('success', TType.LIST, 0)
+            oprot.writeListBegin(TType.STRUCT, len(self.success))
+            for iter34 in self.success:
+                iter34.write(oprot)
+            oprot.writeListEnd()
             oprot.writeFieldEnd()
         if self.excp is not None:
             oprot.writeFieldBegin('excp', TType.STRUCT, 1)
@@ -1208,7 +1216,7 @@ class lsInner_result(object):
         return not (self == other)
 all_structs.append(lsInner_result)
 lsInner_result.thrift_spec = (
-    (0, TType.STRUCT, 'success', [Link, None], None, ),  # 0
+    (0, TType.LIST, 'success', (TType.STRUCT, [Link, None], False), None, ),  # 0
     (1, TType.STRUCT, 'excp', [ServiceException, None], None, ),  # 1
 )
 
