@@ -17,4 +17,9 @@ setup(
     [console_scripts]
     bxcli = bxcli.bxcli:bxcli
     """,
+    install_requires=[
+        'click',
+        'terminaltables',
+        'thrift'
+    ],
 )
