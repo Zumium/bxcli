@@ -15,7 +15,7 @@ setup(
     ],
     entry_points="""
     [console_scripts]
-    bxcli = bxcli.bxcli:bxcli
+    boxes = bxcli.bxcli:bxcli
     """,
     install_requires=[
         'click',
