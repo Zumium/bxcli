@@ -15,7 +15,8 @@ from ..util import parse_inner_path, ask_sure, report_exception
 def link(inner_src, dst, soft):
     """Create link of src to destination location"""
     id, inner_path = parse_inner_path(inner_src)
-    dst = os.path.join(dst, os.path.basename(inner_path))
+    if dst[-1] == os.sep:
+        dst = os.path.join(dst, os.path.basename(inner_path))
 
     if soft:
         ltype = LinkType.SOFT
